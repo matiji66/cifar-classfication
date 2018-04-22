@@ -9,7 +9,7 @@ def load_CIFAR_batch(filename):
     # pickle.load(f, encoding='bytes')
 
     with open(filename, 'rb') as f:
-        datadict = pickle.load(f, encoding='bytes')  # data = cPickle.load(f, encoding='bytes')
+        datadict = pickle.load(f)  # data = cPickle.load(f, encoding='bytes')
         X = datadict[b'data']  # python2 : images = data['data'] python3 :datadict[b'data']
         Y = datadict[b'labels']
         X = X.reshape(10000, 3, 32, 32).transpose(0, 2, 3, 1).astype("float")
