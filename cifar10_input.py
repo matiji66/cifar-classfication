@@ -61,7 +61,7 @@ def inputs(data_dir, batch_size, train=True, name='input'):
             images = read_input.image
             # 图像白化操作，由于网络结构简单，不加这句正确率很低。
             # images = tf.image.per_image_whitening(images)
-            images = tf.image.per_image_standardization(images)
+            images = tf.image.per_image_standardization(images)  # TODO standardized: (image-mean)/stdev
             labels = read_input.label
             # 生成 batch 队列，16 线程操作，容量 20192，min_after_dequeue 是
             # 离队操作后，队列中剩余的最少的元素，确保队列中一直有 min_after_dequeue
@@ -83,7 +83,7 @@ def inputs(data_dir, batch_size, train=True, name='input'):
             filename_queue = tf.train.string_input_producer(filenames)
             read_input = cifar10_data(filename_queue)
             images = read_input.image
-            images = tf.image.per_image_whitening(images)
+            images = tf.image.per_image_standardization(images)
             labels = read_input.label
             num_preprocess_threads = 16
             image, label = tf.train.shuffle_batch(

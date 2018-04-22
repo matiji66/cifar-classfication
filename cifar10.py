@@ -20,6 +20,7 @@ import cifar10_input
 BATCH_SIZE = 64
 LEARNING_RATE = 0.1
 MAX_STEP = 50000
+# TRAIN = False  #
 TRAIN = True
 
 
