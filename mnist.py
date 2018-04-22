@@ -10,7 +10,7 @@ Created on Thu Sep  8 15:29:48 2016
 """
 import tensorflow as tf
 import random
-from cnn import data_utils
+from .cnn import data_utils
 import numpy as np
 
 IMAGE_SIZE = 32
