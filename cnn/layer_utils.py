@@ -1,4 +1,4 @@
-from face_landmark.cnn.layers import *
+from cnn.layers import *
 
 
 def affine_relu_forward(x, w, b):

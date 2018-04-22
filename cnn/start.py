@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 
-from face_landmark.cnn import data_utils
-from face_landmark.cnn.solver import Solver
-from face_landmark.cnn import CNN
+from cnn import data_utils
+from cnn.solver import Solver
+from cnn import CNN
 import numpy as np
 data = data_utils.get_CIFAR10_data()
 model = CNN.ThreeLayerConvNet(reg=0.9)
