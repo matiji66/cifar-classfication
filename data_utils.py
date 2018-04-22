@@ -22,7 +22,7 @@ def load_CIFAR10(ROOT):
     xs = []
     ys = []
     for b in range(1, 6):
-        f = os.path.join(ROOT, 'data_batch_%d' % (b,))
+        f = os.path.join(ROOT, 'data_batch_%d.bin' % (b,))
         X, Y = load_CIFAR_batch(f)
         xs.append(X)
         ys.append(Y)

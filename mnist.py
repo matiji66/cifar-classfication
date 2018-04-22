@@ -21,7 +21,7 @@ CLASS_NUM = 10
 EPOCHS = 50000
 
 
-def get_data(path='.//cifar-10-batches-py//'):  # cifar10_dir = './/cifar-10-batches-py//'
+def get_data(path='.//cifar-10-batches-bin//'):  # cifar10_dir = './/cifar-10-batches-py//'
     return data_utils.get_CIFAR10_data(cifar10_dir=path)
 
 
