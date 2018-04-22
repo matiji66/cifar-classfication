@@ -1,5 +1,4 @@
-# -*- coding:utf-8 -*-
-# @author:Spring
+# import cPickle as pickle  # python2
 import pickle  # python3
 import numpy as np
 import os
@@ -10,7 +9,7 @@ def load_CIFAR_batch(filename):
     # pickle.load(f, encoding='bytes')
 
     with open(filename, 'rb') as f:
-        datadict = pickle.load(f)  # data = cPickle.load(f, encoding='bytes')
+        datadict = pickle.load(f, encoding='bytes')  # data = cPickle.load(f, encoding='bytes')
         X = datadict[b'data']  # python2 : images = data['data'] python3 :datadict[b'data']
         Y = datadict[b'labels']
         X = X.reshape(10000, 3, 32, 32).transpose(0, 2, 3, 1).astype("float")
@@ -23,7 +22,7 @@ def load_CIFAR10(ROOT):
     xs = []
     ys = []
     for b in range(1, 6):
-        f = os.path.join(ROOT, 'data_batch_%d.bin' % (b,))
+        f = os.path.join(ROOT, 'data_batch_%d' % (b,))
         X, Y = load_CIFAR_batch(f)
         xs.append(X)
         ys.append(Y)

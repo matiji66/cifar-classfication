@@ -21,7 +21,7 @@ CLASS_NUM = 10
 EPOCHS = 50000
 
 
-def get_data(path='.//cifar-10-batches-bin//'):  # cifar10_dir = './/cifar-10-batches-py//'
+def get_data(path='.//cifar-10-batches-py//'):  # cifar10_dir = './/cifar-10-batches-py//'
     return data_utils.get_CIFAR10_data(cifar10_dir=path)
 
 
@@ -30,10 +30,13 @@ def next_batch(data, iteraction):
 
 
 def map_to_sparse(data):
+    # targets = np.zeros([64, 10], dtype=np.float)
+    # for index, value in enumerate(labels):
+    #     targets[index, value] = 1.0
     length = len(data)
-    res = np.zeros([length, 10])
+    res = np.zeros([length, 10], dtype=np.float)
     for i, x in enumerate(data):
-        res[i, x] = 1
+        res[i, x] = 1.0
     return res
 
 

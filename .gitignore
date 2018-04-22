@@ -1,3 +1,5 @@
 
 cifar-10-batches-py/*
+cifar-10-batches-bin/*
+cifar10_train/*
 *.tar.gz
