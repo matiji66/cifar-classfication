@@ -9,8 +9,8 @@ from PIL import Image
 import tensorflow as tf
 import matplotlib.pyplot as plt
 
-train_dir = 'D:/picture/train/'
-
+train_dir = 'train2/'
+logs_train_dir = 'log/'
 
 # 存放用来训练的图片的路径
 
@@ -205,8 +205,7 @@ def evaluation(logits, labels):
 
 
 def run_training():
-    train_dir = 'D:/picture/train/'
-    logs_train_dir = 'D:/picture/log/'
+
     # 存放一些模型文件的目录
     train, train_label = get_files(train_dir)
     train_batch, train_label_batch = get_batch(train, train_label,
@@ -323,7 +322,6 @@ CAPACITY = 64
 IMG_W = 208
 IMG_H = 208
 
-train_dir = 'D:/picture/train/'
 
 image_list, label_list = get_files(train_dir)
 image_batch, label_batch = get_batch(image_list, label_list, IMG_W, IMG_H, BATCH_SIZE, CAPACITY)

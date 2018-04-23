@@ -83,7 +83,7 @@ if __name__ == '__main__':
 
 
     # 构建网络
-    x_image = x  # 转换输入数据shape,以便于用于网络中
+    x_image = tf.image.per_image_standardization(x)  # 转换输入数据shape,以便于用于网络中
     W_conv1 = weight_variable([5, 5, CHANNEL, 32], name="c_w1")
     b_conv1 = bias_variable([32],name="c_b1")
     h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)  # 第一个卷积层
@@ -125,7 +125,7 @@ if __name__ == '__main__':
     cross_entropy2 = tf.reduce_sum(cross_entropy)  # dont forget tf.reduce_sum()!!
 
     #cross_entropy = -tf.reduce_sum(y_actual * tf.log(y_predict))  # 交叉熵
-    train_step = tf.train.GradientDescentOptimizer(1e-3).minimize(cross_entropy2)  # 梯度下降法
+    train_step = tf.train.GradientDescentOptimizer(1e-1).minimize(cross_entropy2)  # 梯度下降法
 
     correct_prediction = tf.equal(tf.argmax(y_predict, 1), tf.argmax(y_actual, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))  # 精确度计算

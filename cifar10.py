@@ -32,9 +32,8 @@ def variable_on_cpu(name, shape, initializer=tf.constant_initializer(0.1)):
                               dtype=dtype)
     return var
 
-    # 用 get_variable 在 CPU 上定义变量
 
-
+# 用 get_variable 在 CPU 上定义变量
 def variables(name, shape, stddev):
     dtype = tf.float32
     var = variable_on_cpu(name, shape,
@@ -105,7 +104,6 @@ def inference(images):
         biases = variable_on_cpu('biases', [10])
         softmax_linear = tf.add(tf.matmul(local4, weights), biases,
                                 name=scope.name)
-        #aa = tf.maximum(softmax_linear.eval, tf.Variable(initial_value=10000, ))
         tf.summary.histogram(scope.name + '/activations', softmax_linear)
 
     return softmax_linear
@@ -175,7 +173,7 @@ def train():
             duration = time.time() - start_time
             # 确认收敛
             # assert not np.isnan(loss_value), 'Model diverged with loss = NaN'
-            if step % 30 == 0:
+            if step % 100 == 0:
                 # 本小节代码设置一些花哨的打印格式，可以不用管
                 num_examples_per_step = BATCH_SIZE
                 examples_per_sec = num_examples_per_step / duration

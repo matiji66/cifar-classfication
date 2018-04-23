@@ -1,5 +1,6 @@
-
+.idea/*
 cifar-10-batches-py/*
 cifar-10-batches-bin/*
+__pycache__/*
 cifar10_train/*
 *.tar.gz
